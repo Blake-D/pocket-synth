@@ -3,13 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Oscillator</title>
 </head>
 <body>
-    <h1>sine wave player</h1>
-    <button onclick="playSineWave440hz()">
+    <h1>Oscillator</h1>
+    <button onclick="oscillator.start()">
         Play sine wave
     </button>
-    <script src="script.js"></script>
 </body>
+<script type="text/javascript">
+
+    var audioContext = new AudioContext();
+
+    var oscillator = audioContext.createOscillator();
+    oscillator.connect(audioContext.destination);
+
+    // oscillator.start()
+    
+
+</script>
 </html>
