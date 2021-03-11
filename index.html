@@ -8,18 +8,11 @@
 <body>
     <h1>Oscillator</h1>
     <button onclick="oscillator.start()">
-        Play sine wave
+        play sine wave
+    </button>
+    <button onclick="oscillator.stop()">
+        stop sine wave
     </button>
 </body>
-<script type="text/javascript">
-
-    var audioContext = new AudioContext();
-
-    var oscillator = audioContext.createOscillator();
-    oscillator.connect(audioContext.destination);
-
-    // oscillator.start()
-    
-
-</script>
+<script src="script.js"></script>
 </html>
