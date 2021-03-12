@@ -7,12 +7,24 @@
 </head>
 <body>
     <h1>Oscillator</h1>
-    <button onclick="oscillator.start()">
-        start oscillator
+    <button onclick="play()">
+        start/stop
     </button>
-    <button onclick="location.reload()">
-        stop oscillator
-    </button>
+    <br><br>
+    <div>
+        <input onchange="changetype()" type="radio" name="waveform" checked vale="sine">
+        Sine <br>
+        <input onchange="changetype()" type="radio" name="waveform" checked vale="sawtooth">
+        Sawtooth <br>
+        <input onchange="changetype()" type="radio" name="waveform" checked vale="triangle">
+        Triangle <br>
+        <input onchange="changetype()" type="radio" name="waveform" checked vale="square">
+        Square <br>
+    </div>
+    <br>
+    <div>
+        <input id="freqslider" type="range" onchange="changefreq()" name="">
+    </div>
 </body>
 <script src="script.js"></script>
 </html>
