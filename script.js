@@ -36,12 +36,3 @@ window.onload = function(){
     }
 
 }
-
-// if (window.DeviceOrientationEvent){
-//     console.log("device orientation is supported")
-//     window.addEventListener('deviceorientation', (eventData) => {
-//         console.log(eventData)
-//     }, false)
-// } else {
-//     console.log("Device orientation is not supported")
-// }
