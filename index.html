@@ -12,18 +12,18 @@
     </button>
     <br><br>
     <div>
-        <input onchange="changeType()" type="radio" name="waveform" checked value="sine">
-        Sine <br>
-        <input onchange="changeType()" type="radio" name="waveform" checked value="sawtooth">
-        Sawtooth <br>
-        <input onchange="changeType()" type="radio" name="waveform" checked value="triangle">
-        Triangle <br>
-        <input onchange="changeType()" type="radio" name="waveform" checked value="square">
+        <input checked onchange="changeType()" type="radio" name="waveform" value="square">
         Square <br>
+        <input onchange="changeType()" type="radio" name="waveform" value="triangle">
+        Triangle <br>
+        <input onchange="changeType()" type="radio" name="waveform" value="sawtooth">
+        Sawtooth <br>
+        <input onchange="changeType()" type="radio" name="waveform" value="sine">
+        Sine <br>
     </div>
     <br>
     <div>
-        <input id="freqslider" type="range" oninput="changeFreq()" name="" default=0>
+        <input id="freqslider" type="range" oninput="changeFreq()" name="" min="0" max="1000">
     </div>
 </body>
 <script src="script.js"></script>

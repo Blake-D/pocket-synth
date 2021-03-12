@@ -24,7 +24,7 @@ window.onload = function(){
     }
 
     changeFreq = function(){
-        oscProp.frequency = document.getElementById("freqslider").value * 2
+        oscProp.frequency = document.getElementById("freqslider").value * 3
         play()
         play()
     }
