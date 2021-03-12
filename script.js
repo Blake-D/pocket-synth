@@ -23,19 +23,25 @@ window.onload = function(){
         }
     }
 
-    changeFreq = function(){
-        oscProp.frequency = document.getElementById("freqslider").value * 3
-        play()
-        play()
-    }
-
     changeType = function(){
         oscProp.type = document.querySelector("input[name = 'waveform']:checked").value
         play()
         play()
     }
 
+    changeFreq = function(){
+        oscProp.frequency = document.getElementById("freqslider").value * 3
+        play()
+        play()
+    }
+
 }
 
-
-
+// if (window.DeviceOrientationEvent){
+//     console.log("device orientation is supported")
+//     window.addEventListener('deviceorientation', (eventData) => {
+//         console.log(eventData)
+//     }, false)
+// } else {
+//     console.log("Device orientation is not supported")
+// }
