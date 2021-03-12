@@ -1,5 +1,5 @@
 var play, oscillator, changeFreq, changeType
-
+// for push
 var oscProp = {
     type: "square",
     frequency: 20,
