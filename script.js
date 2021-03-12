@@ -1,8 +1,8 @@
-var play, oscillator
+var play, oscillator, changeFreq, changeType
 
 var oscProp = {
-    type: "sine",
-    frequency: 500,
+    type: "square",
+    frequency: 20,
     playing: false
 }
 
@@ -22,4 +22,20 @@ window.onload = function(){
             oscProp.playing = true
         }
     }
+
+    changeFreq = function(){
+        oscProp.frequency = document.getElementById("freqslider").value * 2
+        play()
+        play()
+    }
+
+    changeType = function(){
+        oscProp.type = document.querySelector("input[name = 'waveform']:checked").value
+        play()
+        play()
+    }
+
 }
+
+
+
