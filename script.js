@@ -1,28 +1,13 @@
 var audioContext = new AudioContext() 
 var oscillator = audioContext.createOscillator()
-var filter = audioContext.createBiquadFilter()
+// var filter = audioContext.createBiquadFilter()
 oscillator.connect(audioContext.destination) 
-
+oscillator.type = "square"
 // vv if you want to run the oscillator through a highpass filter
 // oscillator.connect(filter)
 // filter.connect(audioContext.destination)
 // filter.type = "highpass"
-// filter.frequency.setTargetAtTime(1000, audioContext.currentTime, 0)
+// filter.frequency.setTargetAtTime(2000, audioContext.currentTime, 0)
 
-// let activated = false
-
-// function oscillate(){
-//     if(activated == false){
-//         var audioContext = new AudioContext() 
-//         var oscillator = audioContext.createOscillator()
-//         var filter = audioContext.createBiquadFilter()
-//         oscillator.connect(audioContext.destination)
-//         oscillator.start()
-//         activated = true
-//     } else if(activated == true){
-//         oscillator.stop()
-//         activated = false
-//     }
-// }
-
-
+oscillator.frequency.setValueAtTime(130.4, audioContext.currentTime)
+oscillator.detune.setValueAtTime(200, audioContext.currentTime + 1)
