@@ -1,10 +1,19 @@
 #freqslider{
     width: 95vw;
-    height: 100vw;
+    height: 50vw;
     opacity: 0;
 }
 
 #grid{
     border-style: solid;
     border-color: black;
+    position: absolute;
+}
+
+#title{
+    padding-bottom: 0;
+}
+
+#options{
+    text-align: center;
 }

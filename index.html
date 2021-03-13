@@ -7,23 +7,16 @@
     <title>Oscillator</title>
 </head>
 <body>
-    <h1>Oscillator</h1>
-    <!-- <button onclick="play()">
-        start/stop
-    </button> -->
-    <br><br>
-    <div>
+    <div id="options">
         <input checked onchange="changeType()" type="radio" name="waveform" value="square">
-        Square <br>
-        <input onchange="changeType()" type="radio" name="waveform" value="triangle">
-        Triangle <br>
-        <input onchange="changeType()" type="radio" name="waveform" value="sawtooth">
-        Sawtooth <br>
-        <input onchange="changeType()" type="radio" name="waveform" value="sine">
-        Sine <br>
+        Square | <input onchange="changeType()" type="radio" name="waveform" value="triangle">
+        Triangle | <input onchange="changeType()" type="radio" name="waveform" value="sawtooth">
+        Sawtooth | <input onchange="changeType()" type="radio" name="waveform" value="sine">
+        Sine
     </div>
     <br>
     <div id="grid" onmousedown="play()" onmouseup="play()" ontouchstart="play()" ontouchend="play()">
+        <p>touch the screen to make sound</p>
         <input id="freqslider" type="range" oninput="changeFreq()" name="" min="0" max="100" value="0" step="0.1">
     </div>
 </body>
