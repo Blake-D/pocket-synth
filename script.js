@@ -48,34 +48,28 @@ window.onload = function(){
     let x = null
     let y = null
 
-    document.getElementById("grid").addEventListener('mousedown', (e) => {
-        e.preventDefault()
+    document.getElementById("grid").addEventListener('mousedown', () => {
         mouseState = true
     })
 
-    document.getElementById("grid").addEventListener('touchstart', (e) => {
-        e.preventDefault()
+    document.getElementById("grid").addEventListener('touchstart', () => {
         mouseState = true
     })
 
-    document.getElementById("grid").addEventListener('mouseup', (e) => {
-        e.preventDefault()
+    document.getElementById("grid").addEventListener('mouseup', () => {
         mouseState = false
     })
 
-    document.getElementById("grid").addEventListener('touchend', (e) => {
-        e.preventDefault()
+    document.getElementById("grid").addEventListener('touchend', () => {
         mouseState = false
     })
 
-    document.getElementById("grid").addEventListener('mousemove', (e) => {
-        e.preventDefault()
+    document.getElementById("grid").addEventListener('mousemove', () => {
         x = e.clientX
         y = e.clientY
     })
 
-    document.getElementById("grid").addEventListener('touchmove', (e) => {
-        e.preventDefault()
+    document.getElementById("grid").addEventListener('touchmove', () => {
         x = e.clientX
         y = e.clientY
     })
@@ -88,8 +82,7 @@ window.onload = function(){
         oscProp2.frequency = y
     }
 
-    document.getElementById("grid").addEventListener('mousemove', (e) => {
-        e.preventDefault()
+    document.getElementById("grid").addEventListener('mousemove', () => {
         if(mouseState = true){
             changeFreq()
             play()
@@ -100,8 +93,7 @@ window.onload = function(){
         }
     })
 
-    document.getElementById("grid").addEventListener('touchmove', (e) => {
-        e.preventDefault()
+    document.getElementById("grid").addEventListener('touchmove', () => {
         if(mouseState = true){
             changeFreq()
             play()
