@@ -1,9 +1,5 @@
 var play, oscillator, oscillator2, changeType
 
-document.body.addEventListener("touchstart", function(e){ if (e.target.nodeName == 'CANVAS') { e.preventDefault(); } }, false);
-document.body.addEventListener("touchend", function(e){ if (e.target.nodeName == 'CANVAS') { e.preventDefault(); } }, false);
-document.body.addEventListener("touchmove", function(e){ if (e.target.nodeName == 'CANVAS') { e.preventDefault(); } }, false);
-
 var oscProp = {
     type: "square",
     frequency: 20,
@@ -52,31 +48,31 @@ window.onload = function(){
     let x = null
     let y = null
 
-    document.getElementById("grid").addEventListener('mousedown', () => {
+    document.getElementById("grid").addEventListener('pointerdown', () => {
         mouseState = true
     })
 
-    document.getElementById("grid").addEventListener('touchstart', () => {
-        mouseState = true
-    })
+    // document.getElementById("grid").addEventListener('touchstart', () => {
+    //     mouseState = true
+    // })
 
-    document.getElementById("grid").addEventListener('mouseup', () => {
+    document.getElementById("grid").addEventListener('pointerup', () => {
         mouseState = false
     })
 
-    document.getElementById("grid").addEventListener('touchend', () => {
-        mouseState = false
-    })
+    // document.getElementById("grid").addEventListener('touchend', () => {
+    //     mouseState = false
+    // })
 
-    document.getElementById("grid").addEventListener('mousemove', (e) => {
+    document.getElementById("grid").addEventListener('pointermove', (e) => {
         x = e.clientX
         y = e.clientY
     })
 
-    document.getElementById("grid").addEventListener('touchmove', (e) => {
-        x = e.clientX
-        y = e.clientY
-    })
+    // document.getElementById("grid").addEventListener('touchmove', (e) => {
+    //     x = e.clientX
+    //     y = e.clientY
+    // })
 
     function changeFreq(){
         oscProp.frequency = x
@@ -86,7 +82,7 @@ window.onload = function(){
         oscProp2.frequency = y
     }
 
-    document.getElementById("grid").addEventListener('mousemove', () => {
+    document.getElementById("grid").addEventListener('pointermove', () => {
         if(mouseState = true){
             changeFreq()
             play()
@@ -97,14 +93,14 @@ window.onload = function(){
         }
     })
 
-    document.getElementById("grid").addEventListener('touchmove', () => {
-        if(mouseState = true){
-            changeFreq()
-            play()
-            play()
-            changeFreq2()
-            play()
-            play()
-        }
-    })
+    // document.getElementById("grid").addEventListener('touchmove', () => {
+    //     if(mouseState = true){
+    //         changeFreq()
+    //         play()
+    //         play()
+    //         changeFreq2()
+    //         play()
+    //         play()
+    //     }
+    // })
 }

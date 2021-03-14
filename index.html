@@ -9,13 +9,13 @@
 <body class="lock-screen">
     <div id="options">
         <input checked onchange="changeType()" type="radio" name="waveform" value="square">
-        square | <input onchange="changeType()" type="radio" name="waveform" value="triangle">
-        triangle | <input onchange="changeType()" type="radio" name="waveform" value="sawtooth">
-        sawtooth | <input onchange="changeType()" type="radio" name="waveform" value="sine">
-        sine
+        Square | <input onchange="changeType()" type="radio" name="waveform" value="triangle">
+        Triangle | <input onchange="changeType()" type="radio" name="waveform" value="sawtooth">
+        Sawtooth | <input onchange="changeType()" type="radio" name="waveform" value="sine">
+        Sine
     </div>
     <br>
-    <div id="grid" onmousedown="play()" onmouseup="play()" ontouchstart="play()" ontouchend="play()"></div>
+    <div id="grid" onpointerdown="play()" onpointerup="play()" ontouchstart="play()" ontouchend="play()"></div>
 </body>
 <script src="script.js"></script>
 </html>
