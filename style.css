@@ -1,33 +1,18 @@
-#freqslider{
-    /* position: absolute; */
-    width: 95vw;
-    height: 50vw;
-    opacity: 1;
-    z-index: 1;
+html, body{
+    height: 100%;
+    margin: 0;
 }
-
-/* #freqslider2{
-    position: absolute;
-    width: 95vw;
-    height: 50vw;
-    -webkit-appearance: slider-vertical;
-    writing-mode: bt-lr;
-    z-index: 1;
-} */
 
 #grid{
     background: url('thumbprint.jpeg') no-repeat;
     background-position: center;
     border-style: solid;
     border-color: black;
-    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
 #options{
-    text-align: center;
-}
-
-#instructions{
     text-align: center;
 }
 
