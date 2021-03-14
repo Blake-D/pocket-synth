@@ -48,28 +48,34 @@ window.onload = function(){
     let x = null
     let y = null
 
-    document.getElementById("grid").addEventListener('mousedown', () => {
+    document.getElementById("grid").addEventListener('mousedown', (e) => {
+        e.preventDefault()
         mouseState = true
     })
 
-    document.getElementById("grid").addEventListener('touchstart', () => {
+    document.getElementById("grid").addEventListener('touchstart', (e) => {
+        e.preventDefault()
         mouseState = true
     })
 
-    document.getElementById("grid").addEventListener('mouseup', () => {
+    document.getElementById("grid").addEventListener('mouseup', (e) => {
+        e.preventDefault()
         mouseState = false
     })
 
-    document.getElementById("grid").addEventListener('touchend', () => {
+    document.getElementById("grid").addEventListener('touchend', (e) => {
+        e.preventDefault()
         mouseState = false
     })
 
     document.getElementById("grid").addEventListener('mousemove', (e) => {
+        e.preventDefault()
         x = e.clientX
         y = e.clientY
     })
 
     document.getElementById("grid").addEventListener('touchmove', (e) => {
+        e.preventDefault()
         x = e.clientX
         y = e.clientY
     })
@@ -82,7 +88,8 @@ window.onload = function(){
         oscProp2.frequency = y
     }
 
-    document.getElementById("grid").addEventListener('mousemove', () => {
+    document.getElementById("grid").addEventListener('mousemove', (e) => {
+        e.preventDefault()
         if(mouseState = true){
             changeFreq()
             play()
@@ -93,7 +100,8 @@ window.onload = function(){
         }
     })
 
-    document.getElementById("grid").addEventListener('touchmove', () => {
+    document.getElementById("grid").addEventListener('touchmove', (e) => {
+        e.preventDefault()
         if(mouseState = true){
             changeFreq()
             play()
