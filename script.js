@@ -35,12 +35,14 @@ window.onload = function(){
             oscProp2.playing = false
             )
         } else {
-            oscillator2 = audioContext.createOscillator()
-            oscillator2.type = oscProp2.type
-            oscillator2.frequency.setValueAtTime(oscProp2.frequency, audioContext.currentTime)
-            oscillator2.connect(audioContext.destination)
-            oscillator2.start()
-            oscProp2.playing = true
+            if(document.getElementById("poly-radio").checked){
+                oscillator2 = audioContext.createOscillator()
+                oscillator2.type = oscProp2.type
+                oscillator2.frequency.setValueAtTime(oscProp2.frequency, audioContext.currentTime)
+                oscillator2.connect(audioContext.destination)
+                oscillator2.start()
+                oscProp2.playing = true
+            }
         }
     }
 

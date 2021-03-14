@@ -20,7 +20,7 @@ html, body{
     touch-action: none;
 }
 
-#options{
+#wave-options, #combo-options{
     text-align: center;
 }
 
