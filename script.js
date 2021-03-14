@@ -48,31 +48,31 @@ window.onload = function(){
     let x = null
     let y = null
 
-    document.getElementById("grid").addEventListener('pointerdown', () => {
+    document.getElementById("grid").addEventListener('mousedown', () => {
         mouseState = true
     })
 
-    // document.getElementById("grid").addEventListener('touchstart', () => {
-    //     mouseState = true
-    // })
+    document.getElementById("grid").addEventListener('touchstart', () => {
+        mouseState = true
+    })
 
-    document.getElementById("grid").addEventListener('pointerup', () => {
+    document.getElementById("grid").addEventListener('mouseup', () => {
         mouseState = false
     })
 
-    // document.getElementById("grid").addEventListener('touchend', () => {
-    //     mouseState = false
-    // })
+    document.getElementById("grid").addEventListener('touchend', () => {
+        mouseState = false
+    })
 
-    document.getElementById("grid").addEventListener('pointermove', (e) => {
+    document.getElementById("grid").addEventListener('mousemove', (e) => {
         x = e.clientX
         y = e.clientY
     })
 
-    // document.getElementById("grid").addEventListener('touchmove', (e) => {
-    //     x = e.clientX
-    //     y = e.clientY
-    // })
+    document.getElementById("grid").addEventListener('touchmove', (e) => {
+        x = e.clientX
+        y = e.clientY
+    })
 
     function changeFreq(){
         oscProp.frequency = x
@@ -82,7 +82,7 @@ window.onload = function(){
         oscProp2.frequency = y
     }
 
-    document.getElementById("grid").addEventListener('pointermove', () => {
+    document.getElementById("grid").addEventListener('mousemove', () => {
         if(mouseState = true){
             changeFreq()
             play()
@@ -93,14 +93,14 @@ window.onload = function(){
         }
     })
 
-    // document.getElementById("grid").addEventListener('touchmove', () => {
-    //     if(mouseState = true){
-    //         changeFreq()
-    //         play()
-    //         play()
-    //         changeFreq2()
-    //         play()
-    //         play()
-    //     }
-    // })
+    document.getElementById("grid").addEventListener('touchmove', () => {
+        if(mouseState = true){
+            changeFreq()
+            play()
+            play()
+            changeFreq2()
+            play()
+            play()
+        }
+    })
 }
