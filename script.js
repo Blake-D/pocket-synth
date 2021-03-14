@@ -52,12 +52,24 @@ window.onload = function(){
         mouseState = true
     })
 
+    document.getElementById("grid").addEventListener('touchstart', () => {
+        mouseState = true
+    })
+
     document.getElementById("grid").addEventListener('mouseup', () => {
         mouseState = false
     })
 
+    document.getElementById("grid").addEventListener('touchend', () => {
+        mouseState = false
+    })
 
     document.getElementById("grid").addEventListener('mousemove', (e) => {
+        x = e.clientX
+        y = e.clientY
+    })
+
+    document.getElementById("grid").addEventListener('touchmove', (e) => {
         x = e.clientX
         y = e.clientY
     })
@@ -71,6 +83,17 @@ window.onload = function(){
     }
 
     document.getElementById("grid").addEventListener('mousemove', () => {
+        if(mouseState = true){
+            changeFreq()
+            play()
+            play()
+            changeFreq2()
+            play()
+            play()
+        }
+    })
+
+    document.getElementById("grid").addEventListener('touchmove', () => {
         if(mouseState = true){
             changeFreq()
             play()
