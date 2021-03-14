@@ -7,15 +7,19 @@
     <title>Oscillator</title>
 </head>
 <body class="lock-screen">
-    <div id="wave-options">
-        <input checked onchange="changeType()" type="radio" name="waveform" value="square">Square | 
-        <input onchange="changeType()" type="radio" name="waveform" value="triangle">Triangle | 
-        <input onchange="changeType()" type="radio" name="waveform" value="sawtooth">Sawtooth | 
-        <input onchange="changeType()" type="radio" name="waveform" value="sine">Sine
-    </div>
     <div id="combo-options">
         <input checked type="radio" name="combo" value="mono">Monophonic
         <input id="poly-radio" type="radio" name="combo" value="poly">Polyphonic
+    </div>
+    <div id="wave-options">
+        Wave 1:<input checked onchange="changeType()" type="radio" name="waveform" value="square">Square | 
+        <input onchange="changeType()" type="radio" name="waveform" value="triangle">Triangle | 
+        <input onchange="changeType()" type="radio" name="waveform" value="sawtooth">Sawtooth | 
+        <input onchange="changeType()" type="radio" name="waveform" value="sine">Sine<br>
+        Wave 2:<input checked onchange="changeType2()" type="radio" name="waveform2" value="square">Square |
+        <input onchange="changeType2()" type="radio" name="waveform2" value="triangle">Triangle |
+        <input onchange="changeType2()" type="radio" name="waveform2" value="sawtooth">Sawtooth |
+        <input onchange="changeType2()" type="radio" name="waveform2" value="sine">Sine
     </div>
     <br>
     <div id="grid" onmousedown="play(), play2()" onmouseup="play(), play2()"></div>

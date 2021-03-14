@@ -1,4 +1,4 @@
-var play, play2, oscillator, oscillator2, changeType
+var play, play2, oscillator, oscillator2, changeType, changeType2
 
 var oscProp = {
     type: "square",
@@ -50,7 +50,10 @@ window.onload = function(){
         oscProp.type = document.querySelector("input[name = 'waveform']:checked").value
         play()
         play()
-        oscProp2.type = document.querySelector("input[name = 'waveform']:checked").value
+    }
+
+    changeType2 = function(){
+        oscProp2.type = document.querySelector("input[name = 'waveform2']:checked").value
         play2()
         play2()
     }
