@@ -64,12 +64,12 @@ window.onload = function(){
         mouseState = false
     })
 
-    document.getElementById("grid").addEventListener('mousemove', () => {
+    document.getElementById("grid").addEventListener('mousemove', (e) => {
         x = e.clientX
         y = e.clientY
     })
 
-    document.getElementById("grid").addEventListener('touchmove', () => {
+    document.getElementById("grid").addEventListener('touchmove', (e) => {
         x = e.clientX
         y = e.clientY
     })
