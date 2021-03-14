@@ -45,6 +45,8 @@ window.onload = function(){
     }
 
     let mouseState = false
+    let x = null
+    let y = null
 
     document.getElementById("grid").addEventListener('mousedown', () => {
         mouseState = true
@@ -58,18 +60,30 @@ window.onload = function(){
 
 
     document.getElementById("grid").addEventListener('mousemove', (e) => {
-        let x = e.clientX
-        let y = e.clientY
+        x = e.clientX
+        y = e.clientY
         if(mouseState === true){
             console.log(x, y)
         }
     })
 
-    changeFreq = function(){
-        oscProp.frequency = document.getElementById("freqslider").value * 3
-        play()
-        play()
+    function changeFreq(){
+        oscProp.frequency = x
     }
+
+    document.getElementById("grid").addEventListener('mousemove', () => {
+        if(mouseState = true){
+            changeFreq()
+            play()
+            play()
+        }
+    })
+
+    // changeFreq = function(){
+    //     oscProp.frequency = x
+    //     play()
+    //     play()
+    // }
 
     changeFreq2 = function(){
         oscProp2.frequency = document.getElementById("freqslider2").value * 2
