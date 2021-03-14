@@ -46,8 +46,34 @@ window.onload = function(){
 
     changeFreq = function(){
         oscProp.frequency = document.getElementById("freqslider").value * 3
-        oscProp2.frequency = document.getElementById("freqslider").value * 4
+        play()
+        play()
+    }
+
+    changeFreq2 = function(){
+        oscProp2.frequency = document.getElementById("freqslider2").value * 2
         play()
         play()
     }
 }
+
+let mouseState = false
+
+document.getElementById("grid").addEventListener('mousedown', () => {
+    mouseState = true
+    console.log(mouseState)
+})
+
+document.getElementById("grid").addEventListener('mouseup', () => {
+    mouseState = false
+    console.log(mouseState)
+})
+
+
+document.getElementById("grid").addEventListener('mousemove', (e) => {
+    let x = e.clientX
+    let y = e.clientY
+    if(mouseState === true){
+        console.log(x, y)
+    }
+})

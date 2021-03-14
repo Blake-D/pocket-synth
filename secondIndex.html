@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="secondStyle.css">
+    <title>Oscillator</title>
+</head>
+<body>
+    <div id="options">
+        <input checked onchange="changeType()" type="radio" name="waveform" value="square">
+        Square | <input onchange="changeType()" type="radio" name="waveform" value="triangle">
+        Triangle | <input onchange="changeType()" type="radio" name="waveform" value="sawtooth">
+        Sawtooth | <input onchange="changeType()" type="radio" name="waveform" value="sine">
+        Sine
+    </div>
+    <br>
+    <div id="grid" onmousedown="play()" onmouseup="play()" ontouchstart="play()" ontouchend="play()">
+       
+    </div>
+</body>
+<script src="fourthScript.js"></script>
+</html>

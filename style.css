@@ -1,8 +1,19 @@
 #freqslider{
+    /* position: absolute; */
     width: 95vw;
     height: 50vw;
-    opacity: 0;
+    opacity: 1;
+    z-index: 1;
 }
+
+/* #freqslider2{
+    position: absolute;
+    width: 95vw;
+    height: 50vw;
+    -webkit-appearance: slider-vertical;
+    writing-mode: bt-lr;
+    z-index: 1;
+} */
 
 #grid{
     background: url('thumbprint.jpeg') no-repeat;
