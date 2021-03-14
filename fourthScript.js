@@ -1,4 +1,4 @@
-var play, play2, oscillator, oscillator2, changeFreq, changeType
+var play, oscillator, oscillator2, changeType
 
 var oscProp = {
     type: "square",
@@ -50,25 +50,24 @@ window.onload = function(){
 
     document.getElementById("grid").addEventListener('mousedown', () => {
         mouseState = true
-        console.log(mouseState)
     })
 
     document.getElementById("grid").addEventListener('mouseup', () => {
         mouseState = false
-        console.log(mouseState)
     })
 
 
     document.getElementById("grid").addEventListener('mousemove', (e) => {
         x = e.clientX
         y = e.clientY
-        if(mouseState === true){
-            console.log(x, y)
-        }
     })
 
     function changeFreq(){
         oscProp.frequency = x
+    }
+
+    function changeFreq2(){
+        oscProp2.frequency = y
     }
 
     document.getElementById("grid").addEventListener('mousemove', () => {
@@ -76,18 +75,9 @@ window.onload = function(){
             changeFreq()
             play()
             play()
+            changeFreq2()
+            play()
+            play()
         }
     })
-
-    // changeFreq = function(){
-    //     oscProp.frequency = x
-    //     play()
-    //     play()
-    // }
-
-    changeFreq2 = function(){
-        oscProp2.frequency = document.getElementById("freqslider2").value * 2
-        play()
-        play()
-    }
 }
