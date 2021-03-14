@@ -3,6 +3,13 @@ html, body{
     margin: 0;
 }
 
+.lock-screen{
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+}
+
 #grid{
     background: url('thumbprint.jpeg') no-repeat;
     background-position: center;

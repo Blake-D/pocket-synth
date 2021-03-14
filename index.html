@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Oscillator</title>
 </head>
-<body>
+<body class="lock-screen">
     <div id="options">
         <input checked onchange="changeType()" type="radio" name="waveform" value="square">
         Square | <input onchange="changeType()" type="radio" name="waveform" value="triangle">
@@ -15,9 +15,7 @@
         Sine
     </div>
     <br>
-    <div id="grid" onmousedown="play()" onmouseup="play()" ontouchstart="play()" ontouchend="play()">
-       
-    </div>
+    <div id="grid" onmousedown="play()" onmouseup="play()" ontouchstart="play()" ontouchend="play()"></div>
 </body>
 <script src="script.js"></script>
 </html>
