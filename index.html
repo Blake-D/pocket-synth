@@ -11,9 +11,15 @@
         <input checked type="radio" name="combo" value="mono">1D
         <input id="poly-radio" type="radio" name="combo" value="poly">2D
     </div>
+    <div id="trem-option">
+        Tremolo (1D only):
+        <input checked id="trem-off" type="radio" name="trem" value="trem">off
+        <input id="trem-on" type="radio" name="trem" value="trem">on
+    </div>
     <div id="harmony-options">
-        Harmony (1D only):
+        Harmony (1D only. Turn tremolo off to apply):
         <input checked type="radio" name="harmony" value="P1">P1 |
+        <input id="m2" type="radio" name="harmony" value="m2">m2 |
         <input id="M2" type="radio" name="harmony" value="M2">M2 |
         <input id="m3" type="radio" name="harmony" value="m3">m3 |
         <input id="M3" type="radio" name="harmony" value="M3">M3 |
@@ -25,13 +31,13 @@
         <input onchange="changeType()" type="radio" name="waveform" value="triangle">Triangle | 
         <input onchange="changeType()" type="radio" name="waveform" value="sawtooth">Sawtooth | 
         <input onchange="changeType()" type="radio" name="waveform" value="sine">Sine<br>
-        Wave 2:<input checked onchange="changeType2()" type="radio" name="waveform2" value="square">Square |
+        Wave 2 (if 2D activated):<input checked onchange="changeType2()" type="radio" name="waveform2" value="square">Square |
         <input onchange="changeType2()" type="radio" name="waveform2" value="triangle">Triangle |
         <input onchange="changeType2()" type="radio" name="waveform2" value="sawtooth">Sawtooth |
         <input onchange="changeType2()" type="radio" name="waveform2" value="sine">Sine
     </div>
     <br>
-    <div id="grid" onmousedown="play(), play2(), play3(), play4(), play5(), play6(), play7()" onmouseup="play(), play2(), play3(), play4(), play5(), play6(), play7()"></div>
+    <div id="grid" onmousedown="play(), play2(), play3(), play4(), play5(), play6(), play7(), play8(), play9()" onmouseup="play(), play2(), play3(), play4(), play5(), play6(), play7(), play8(), play9()"></div>
 </body>
 <script src="script.js"></script>
 </html>

@@ -1,4 +1,4 @@
-var play, play2, play3, play4, play5, play6, play7, oscillator, oscillator2, oscillator3, oscillator4, oscillator5, oscillator6, oscillator7, changeType, changeType2
+var play, play2, play3, play4, play5, play6, play7, play8, play9, oscillator, oscillator2, oscillator3, oscillator4, oscillator5, oscillator6, oscillator7, oscillator8, oscillator9, changeType, changeType2
 
 var oscProp = { // principal osc for all possible combos
     type: "square",
@@ -42,6 +42,18 @@ var oscProp7 = { // M2 osc in 1D
     playing: false
 }
 
+var oscProp8 = { // m2 osc in 1D
+    type: "square",
+    frequency: 20,
+    playing: false
+}
+
+var oscProp9 = { // tremolo osc in 1D
+    type: "square",
+    frequency: 20,
+    playing: false
+}
+
 var audioContext = new AudioContext()
 
 window.onload = function(){
@@ -80,7 +92,7 @@ window.onload = function(){
             oscillator3.stop()
             oscProp3.playing = false
         } else {
-            if(document.getElementById("P5").checked && !document.getElementById("poly-radio").checked){
+            if(document.getElementById("P5").checked && !document.getElementById("poly-radio").checked && !document.getElementById("trem-on").checked){
                 oscillator3 = audioContext.createOscillator()
                 oscillator3.type = oscProp3.type
                 oscillator3.frequency.setValueAtTime(oscProp3.frequency, audioContext.currentTime)
@@ -96,7 +108,7 @@ window.onload = function(){
             oscillator4.stop()
             oscProp4.playing = false
         } else {
-            if(document.getElementById("P4").checked && !document.getElementById("poly-radio").checked){
+            if(document.getElementById("P4").checked && !document.getElementById("poly-radio").checked && !document.getElementById("trem-on").checked){
                 oscillator4 = audioContext.createOscillator()
                 oscillator4.type = oscProp4.type
                 oscillator4.frequency.setValueAtTime(oscProp4.frequency, audioContext.currentTime)
@@ -112,7 +124,7 @@ window.onload = function(){
             oscillator5.stop()
             oscProp5.playing = false
         } else {
-            if(document.getElementById("M3").checked && !document.getElementById("poly-radio").checked){
+            if(document.getElementById("M3").checked && !document.getElementById("poly-radio").checked && !document.getElementById("trem-on").checked){
                 oscillator5 = audioContext.createOscillator()
                 oscillator5.type = oscProp5.type
                 oscillator5.frequency.setValueAtTime(oscProp5.frequency, audioContext.currentTime)
@@ -128,7 +140,7 @@ window.onload = function(){
             oscillator6.stop()
             oscProp6.playing = false
         } else {
-            if(document.getElementById("m3").checked && !document.getElementById("poly-radio").checked){
+            if(document.getElementById("m3").checked && !document.getElementById("poly-radio").checked && !document.getElementById("trem-on").checked){
                 oscillator6 = audioContext.createOscillator()
                 oscillator6.type = oscProp6.type
                 oscillator6.frequency.setValueAtTime(oscProp6.frequency, audioContext.currentTime)
@@ -144,13 +156,45 @@ window.onload = function(){
             oscillator7.stop()
             oscProp7.playing = false
         } else {
-            if(document.getElementById("M2").checked && !document.getElementById("poly-radio").checked){
+            if(document.getElementById("M2").checked && !document.getElementById("poly-radio").checked && !document.getElementById("trem-on").checked){
                 oscillator7 = audioContext.createOscillator()
                 oscillator7.type = oscProp7.type
                 oscillator7.frequency.setValueAtTime(oscProp7.frequency, audioContext.currentTime)
                 oscillator7.connect(audioContext.destination)
                 oscillator7.start()
                 oscProp7.playing = true
+            }
+        }
+    }
+
+    play8 = function(){
+        if(oscProp8.playing){
+            oscillator8.stop()
+            oscProp8.playing = false
+        } else {
+            if(document.getElementById("m2").checked && !document.getElementById("poly-radio").checked && !document.getElementById("trem-on").checked){
+                oscillator8 = audioContext.createOscillator()
+                oscillator8.type = oscProp8.type
+                oscillator8.frequency.setValueAtTime(oscProp8.frequency, audioContext.currentTime)
+                oscillator8.connect(audioContext.destination)
+                oscillator8.start()
+                oscProp8.playing = true
+            }
+        }
+    }
+
+    play9 = function(){
+        if(oscProp9.playing){
+            oscillator9.stop()
+            oscProp9.playing = false
+        } else {
+            if(document.getElementById("trem-on").checked && !document.getElementById("poly-radio").checked){
+                oscillator9 = audioContext.createOscillator()
+                oscillator9.type = oscProp9.type
+                oscillator9.frequency.setValueAtTime(oscProp9.frequency, audioContext.currentTime)
+                oscillator9.connect(audioContext.destination)
+                oscillator9.start()
+                oscProp9.playing = true
             }
         }
     }
@@ -162,6 +206,8 @@ window.onload = function(){
         oscProp5.type = document.querySelector("input[name = 'waveform']:checked").value
         oscProp6.type = document.querySelector("input[name = 'waveform']:checked").value
         oscProp7.type = document.querySelector("input[name = 'waveform']:checked").value
+        oscProp8.type = document.querySelector("input[name = 'waveform']:checked").value
+        oscProp9.type = document.querySelector("input[name = 'waveform']:checked").value
         play()
         play()
         play3()
@@ -174,6 +220,10 @@ window.onload = function(){
         play6()
         play7()
         play7()
+        play8()
+        play8()
+        play9()
+        play9()
     }
 
     changeType2 = function(){
@@ -206,6 +256,8 @@ window.onload = function(){
         oscProp5.frequency = x * 1.25
         oscProp6.frequency = x * 1.2
         oscProp7.frequency = x * 1.125
+        oscProp8.frequency = x * 1.06666666667
+        oscProp9.frequency = x * 1.01
     }
 
     function changeFreq2(){
@@ -227,6 +279,10 @@ window.onload = function(){
             play6()
             play7()
             play7()
+            play8()
+            play8()
+            play9()
+            play9()
             changeFreq2()
             play2()
             play2()
