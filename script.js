@@ -1,4 +1,23 @@
-var play, play2, play3, play4, play5, play6, play7, play8, play9, oscillator, oscillator2, oscillator3, oscillator4, oscillator5, oscillator6, oscillator7, oscillator8, oscillator9, changeType, changeType2
+var play, 
+    play2, 
+    play3, 
+    play4, 
+    play5, 
+    play6, 
+    play7, 
+    play8, 
+    play9, 
+    oscillator, 
+    oscillator2, 
+    oscillator3, 
+    oscillator4, 
+    oscillator5, 
+    oscillator6, 
+    oscillator7, 
+    oscillator8, 
+    oscillator9, 
+    changeType, 
+    changeType2
 
 var oscProp = { // principal osc for all possible combos
     type: "square",
