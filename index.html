@@ -8,8 +8,13 @@
 </head>
 <body class="lock-screen">
     <div id="combo-options">
-        <input checked type="radio" name="combo" value="mono">Monophonic
-        <input id="poly-radio" type="radio" name="combo" value="poly">Polyphonic
+        <input checked type="radio" name="combo" value="mono">1D
+        <input id="poly-radio" type="radio" name="combo" value="poly">2D
+    </div>
+    <div id="harmony-options">
+        Harmony (1D only):
+        <input checked type="radio" name="harmony" value="P1">P1 |
+        <input id="P5" type="radio" name="harmony" value="P5">P5
     </div>
     <div id="wave-options">
         Wave 1:<input checked onchange="changeType()" type="radio" name="waveform" value="square">Square | 
@@ -22,7 +27,7 @@
         <input onchange="changeType2()" type="radio" name="waveform2" value="sine">Sine
     </div>
     <br>
-    <div id="grid" onmousedown="play(), play2()" onmouseup="play(), play2()"></div>
+    <div id="grid" onmousedown="play(), play2(), play3()" onmouseup="play(), play2(), play3()"></div>
 </body>
 <script src="script.js"></script>
 </html>
