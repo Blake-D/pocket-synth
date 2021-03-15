@@ -1,4 +1,4 @@
-var play, play2, play3, play4, play5, play6, play7, play8, play9, oscillator, oscillator2, oscillator3, oscillator4, oscillator5, oscillator6, oscillator7, oscillator8, oscillator9, changeType, changeType2
+var play, play2, play3, play4, play5, play6, play7, play8, play9, play10, oscillator, oscillator2, oscillator3, oscillator4, oscillator5, oscillator6, oscillator7, oscillator8, oscillator9, oscillator10, changeType, changeType2
 
 var oscProp = { // principal osc for all possible combos
     type: "square",
@@ -49,6 +49,12 @@ var oscProp8 = { // m2 osc in 1D
 }
 
 var oscProp9 = { // tremolo osc in 1D
+    type: "square",
+    frequency: 20,
+    playing: false
+}
+
+var oscProp10 = { // m6 osc in 1D
     type: "square",
     frequency: 20,
     playing: false
@@ -199,6 +205,22 @@ window.onload = function(){
         }
     }
 
+    play10 = function(){
+        if(oscProp10.playing){
+            oscillator10.stop()
+            oscProp10.playing = false
+        } else {
+            if(document.getElementById("m6").checked && !document.getElementById("poly-radio").checked && !document.getElementById("trem-on").checked){
+                oscillator10 = audioContext.createOscillator()
+                oscillator10.type = oscProp10.type
+                oscillator10.frequency.setValueAtTime(oscProp10.frequency, audioContext.currentTime)
+                oscillator10.connect(audioContext.destination)
+                oscillator10.start()
+                oscProp10.playing = true
+            }
+        }
+    }
+
     changeType = function(){
         oscProp.type = document.querySelector("input[name = 'waveform']:checked").value
         oscProp3.type = document.querySelector("input[name = 'waveform']:checked").value
@@ -208,6 +230,7 @@ window.onload = function(){
         oscProp7.type = document.querySelector("input[name = 'waveform']:checked").value
         oscProp8.type = document.querySelector("input[name = 'waveform']:checked").value
         oscProp9.type = document.querySelector("input[name = 'waveform']:checked").value
+        oscProp10.type = document.querySelector("input[name = 'waveform']:checked").value
         play()
         play()
         play3()
@@ -224,6 +247,8 @@ window.onload = function(){
         play8()
         play9()
         play9()
+        play10()
+        play10()
     }
 
     changeType2 = function(){
@@ -258,6 +283,7 @@ window.onload = function(){
         oscProp7.frequency = x * 1.125
         oscProp8.frequency = x * 1.06666666667
         oscProp9.frequency = x * 1.01
+        oscProp10.frequency = x * 1.6
     }
 
     function changeFreq2(){
@@ -283,6 +309,8 @@ window.onload = function(){
             play8()
             play9()
             play9()
+            play10()
+            play10()
             changeFreq2()
             play2()
             play2()
