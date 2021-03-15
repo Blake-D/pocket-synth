@@ -7,20 +7,20 @@ var playX,
     changeTypeX, 
     changeTypeY
 
-var oscX = { // principal osc for all possible combos
-    type: "square",
+var oscX = { // primary oscillator for all possible combos, frequency is tied to X-axis
+    type: "sine",
     frequency: 20,
     playing: false
 }
 
-var oscY = { // y-axis osc if 2D is selected
-    type: "square",
+var oscY = { // Y-axis osc if 2D is selected
+    type: "sine",
     frequency: 20,
     playing: false
 }
 
-var oscX2 = { // harmonizing frequency in 1D
-    type: "square",
+var oscX2 = { // harmonizing osc in 1D, linked to X-axis
+    type: "sine",
     frequency: 20,
     playing: false
 }
@@ -29,10 +29,10 @@ var audioContext = new AudioContext()
 
 window.onload = function(){
     playX = function(){ 
-        if(oscX.playing){
+        if(oscX.playing){ // stops the primary osc if it's already playing
             oscillatorX.stop()
             oscX.playing = false
-        } else {
+        } else { //otherwise generates and starts it
             oscillatorX = audioContext.createOscillator()
             oscillatorX.type = oscX.type
             oscillatorX.frequency.setValueAtTime(oscX.frequency, audioContext.currentTime)
@@ -43,10 +43,10 @@ window.onload = function(){
     }
 
     playY = function(){
-        if(oscY.playing){
+        if(oscY.playing){ // stops the Y-axis osc if it's already playing
             oscillatorY.stop()
             oscY.playing = false
-        } else {
+        } else { // otherwise creates and starts it (if the 2D radio button is selected)
             if(document.getElementById("poly-radio").checked){
                 oscillatorY = audioContext.createOscillator()
                 oscillatorY.type = oscY.type
@@ -59,10 +59,10 @@ window.onload = function(){
     }
 
     playX2 = function(){
-        if(oscX2.playing){
+        if(oscX2.playing){ // stops the harmonizing osc if it's already playing
             oscillatorX2.stop()
             oscX2.playing = false
-        } else {
+        } else { // otherwise creates and starts it (if the 2D radio button is not selected)
             if(!document.getElementById("poly-radio").checked){
                 oscillatorX2 = audioContext.createOscillator()
                 oscillatorX2.type = oscX2.type
@@ -74,7 +74,7 @@ window.onload = function(){
         }
     }
 
-    changeTypeX = function(){
+    changeTypeX = function(){ // changes the waveform type of the X and X2 oscillator, based on the 'waveform' options in index.html. X and X2 can only be set to the same type.
         oscX.type = document.querySelector("input[name = 'waveform']:checked").value
         oscX2.type = document.querySelector("input[name = 'waveform']:checked").value
         playX()
@@ -83,12 +83,13 @@ window.onload = function(){
         playX2()
     }
 
-    changeTypeY = function(){
+    changeTypeY = function(){ // changes the waveform type of the Y-axis oscillator, based on the 'waveform' option in index.html. X and Y don't need to be set to the same type.
         oscY.type = document.querySelector("input[name = 'waveform2']:checked").value
         playY()
         playY()
     }
 
+    // determines the state of the mouse (down or up). the mousemove event listener below can only call the changeFreq functions if mouseState is true
     let mouseState = false
     let x = null
     let y = null
@@ -101,56 +102,38 @@ window.onload = function(){
         mouseState = false
     })
 
+    // grabs the mouse's x and y coordinates and uses them to inform the changeFreq functions
     document.getElementById("grid").addEventListener('mousemove', (e) => {
         x = e.clientX
         y = e.clientY
     })
 
     function changeFreqX(){
-        oscX.frequency = x
-        if(document.getElementById("trem-on").checked){
+        oscX.frequency = x // changes the primary osc frequency
+        if(document.getElementById("trem-on").checked){ // formes the tremolo frequency, relative to primary
             oscX2.frequency = x * 1.01
-        } else if(!document.getElementById("trem-on").checked && document.getElementById("m2").checked){
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("m2").checked){ // forms minor 2nd, relative to primary
             oscX2.frequency = x * 1.06666666667
-        } else if(!document.getElementById("trem-on").checked && document.getElementById("M2").checked){
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("M2").checked){ // forms major 2nd
             oscX2.frequency = x * 1.125
-        } else if(!document.getElementById("trem-on").checked && document.getElementById("m3").checked){
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("m3").checked){ // minor 3rd
             oscX2.frequency = x * 1.2
-        } else if(!document.getElementById("trem-on").checked && document.getElementById("M3").checked){
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("M3").checked){ // major 3rd
             oscX2.frequency = x * 1.25
-        } else if(!document.getElementById("trem-on").checked && document.getElementById("P4").checked){
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("P4").checked){ // perfect 4th
             oscX2.frequency = x * 1.33333333333
-        } else if(!document.getElementById("trem-on").checked && document.getElementById("P5").checked){
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("P5").checked){ // perfect 5th
             oscX2.frequency = x * 1.5
-        } else{
+        } else{ // if just P1 selected, no trem, in 1D
             oscX2.frequency = null
         }
     }
 
-    // function changeFreqX(){
-    //     oscX.frequency = x
-    //     if(document.getElementById("P5").checked && !document.getElementById("trem-on").checked){
-    //         oscX2.frequency = x * 1.5  
-    //     } else if(document.getElementById("P4").checked && !document.getElementById("trem-on").checked){
-    //         oscX2.frequency = x * 1.33333333333
-    //     } else if(document.getElementById("M3").checked && !document.getElementById("trem-on").checked){
-    //         oscX2.frequency = x * 1.25
-    //     } else if(document.getElementById("m3").checked && !document.getElementById("trem-on").checked){
-    //         oscX2.frequency = x * 1.2
-    //     } else if(document.getElementById("M2").checked && !document.getElementById("trem-on").checked){
-    //         oscX2.frequency = x * 1.125
-    //     } else if(document.getElementById("m2").checked && !document.getElementById("trem-on").checked){
-    //         oscX2.frequency = x * 1.06666666667
-    //     } else if(document.getElementById("trem-on").checked){
-    //         oscX2.frequency = x * 1.01
-    //     }
-    // }
-
-    function changeFreqY(){
+    function changeFreqY(){ // changes Y-axis osc frequency
         oscY.frequency = y
     }
 
-    document.getElementById("grid").addEventListener('mousemove', () => {
+    document.getElementById("grid").addEventListener('mousemove', () => { // calls the changeFreq functions if mouse is down
         if(mouseState = true){
             changeFreqX()
             playX()
