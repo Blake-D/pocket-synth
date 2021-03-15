@@ -63,7 +63,7 @@ window.onload = function(){
             oscillatorX2.stop()
             oscX2.playing = false
         } else {
-            if(!document.getElementById("poly-radio").checked && !document.getElementById("P1").checked){
+            if(!document.getElementById("poly-radio").checked){
                 oscillatorX2 = audioContext.createOscillator()
                 oscillatorX2.type = oscX2.type
                 oscillatorX2.frequency.setValueAtTime(oscX2.frequency, audioContext.currentTime)
@@ -108,22 +108,43 @@ window.onload = function(){
 
     function changeFreqX(){
         oscX.frequency = x
-        if(document.getElementById("P5").checked && !document.getElementById("trem-on").checked){
-            oscX2.frequency = x * 1.5  
-        } else if(document.getElementById("P4").checked && !document.getElementById("trem-on").checked){
-            oscX2.frequency = x * 1.33333333333
-        } else if(document.getElementById("M3").checked && !document.getElementById("trem-on").checked){
-            oscX2.frequency = x * 1.25
-        } else if(document.getElementById("m3").checked && !document.getElementById("trem-on").checked){
-            oscX2.frequency = x * 1.2
-        } else if(document.getElementById("M2").checked && !document.getElementById("trem-on").checked){
-            oscX2.frequency = x * 1.125
-        } else if(document.getElementById("m2").checked && !document.getElementById("trem-on").checked){
-            oscX2.frequency = x * 1.06666666667
-        } else if(document.getElementById("trem-on").checked){
+        if(document.getElementById("trem-on").checked){
             oscX2.frequency = x * 1.01
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("m2").checked){
+            oscX2.frequency = x * 1.06666666667
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("M2").checked){
+            oscX2.frequency = x * 1.125
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("m3").checked){
+            oscX2.frequency = x * 1.2
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("M3").checked){
+            oscX2.frequency = x * 1.25
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("P4").checked){
+            oscX2.frequency = x * 1.33333333333
+        } else if(!document.getElementById("trem-on").checked && document.getElementById("P5").checked){
+            oscX2.frequency = x * 1.5
+        } else{
+            oscX2.frequency = null
         }
     }
+
+    // function changeFreqX(){
+    //     oscX.frequency = x
+    //     if(document.getElementById("P5").checked && !document.getElementById("trem-on").checked){
+    //         oscX2.frequency = x * 1.5  
+    //     } else if(document.getElementById("P4").checked && !document.getElementById("trem-on").checked){
+    //         oscX2.frequency = x * 1.33333333333
+    //     } else if(document.getElementById("M3").checked && !document.getElementById("trem-on").checked){
+    //         oscX2.frequency = x * 1.25
+    //     } else if(document.getElementById("m3").checked && !document.getElementById("trem-on").checked){
+    //         oscX2.frequency = x * 1.2
+    //     } else if(document.getElementById("M2").checked && !document.getElementById("trem-on").checked){
+    //         oscX2.frequency = x * 1.125
+    //     } else if(document.getElementById("m2").checked && !document.getElementById("trem-on").checked){
+    //         oscX2.frequency = x * 1.06666666667
+    //     } else if(document.getElementById("trem-on").checked){
+    //         oscX2.frequency = x * 1.01
+    //     }
+    // }
 
     function changeFreqY(){
         oscY.frequency = y
