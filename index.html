@@ -14,6 +14,7 @@
     <div id="harmony-options">
         Harmony (1D only):
         <input checked type="radio" name="harmony" value="P1">P1 |
+        <input id="M3" type="radio" name="harmony" value="M3">M3 |
         <input id="P4" type="radio" name="harmony" value="P4">P4 |
         <input id="P5" type="radio" name="harmony" value="P5">P5
     </div>
@@ -28,7 +29,7 @@
         <input onchange="changeType2()" type="radio" name="waveform2" value="sine">Sine
     </div>
     <br>
-    <div id="grid" onmousedown="play(), play2(), play3(), play4()" onmouseup="play(), play2(), play3(), play4()"></div>
+    <div id="grid" onmousedown="play(), play2(), play3(), play4(), play5()" onmouseup="play(), play2(), play3(), play4(), play5()"></div>
 </body>
 <script src="script.js"></script>
 </html>
