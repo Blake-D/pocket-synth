@@ -1,4 +1,4 @@
-var play, play2, play3, play4, play5, play6, oscillator, oscillator2, oscillator3, oscillator4, oscillator5, oscillator6, changeType, changeType2
+var play, play2, play3, play4, play5, play6, play7, oscillator, oscillator2, oscillator3, oscillator4, oscillator5, oscillator6, oscillator7, changeType, changeType2
 
 var oscProp = { // principal osc for all possible combos
     type: "square",
@@ -31,6 +31,12 @@ var oscProp5 = { // M3 osc in 1D
 }
 
 var oscProp6 = { // m3 osc in 1D
+    type: "square",
+    frequency: 20,
+    playing: false
+}
+
+var oscProp7 = { // M2 osc in 1D
     type: "square",
     frequency: 20,
     playing: false
@@ -133,12 +139,29 @@ window.onload = function(){
         }
     }
 
+    play7 = function(){
+        if(oscProp7.playing){
+            oscillator7.stop()
+            oscProp7.playing = false
+        } else {
+            if(document.getElementById("M2").checked && !document.getElementById("poly-radio").checked){
+                oscillator7 = audioContext.createOscillator()
+                oscillator7.type = oscProp7.type
+                oscillator7.frequency.setValueAtTime(oscProp7.frequency, audioContext.currentTime)
+                oscillator7.connect(audioContext.destination)
+                oscillator7.start()
+                oscProp7.playing = true
+            }
+        }
+    }
+
     changeType = function(){
         oscProp.type = document.querySelector("input[name = 'waveform']:checked").value
         oscProp3.type = document.querySelector("input[name = 'waveform']:checked").value
         oscProp4.type = document.querySelector("input[name = 'waveform']:checked").value
         oscProp5.type = document.querySelector("input[name = 'waveform']:checked").value
         oscProp6.type = document.querySelector("input[name = 'waveform']:checked").value
+        oscProp7.type = document.querySelector("input[name = 'waveform']:checked").value
         play()
         play()
         play3()
@@ -149,6 +172,8 @@ window.onload = function(){
         play5()
         play6()
         play6()
+        play7()
+        play7()
     }
 
     changeType2 = function(){
@@ -180,6 +205,7 @@ window.onload = function(){
         oscProp4.frequency = x * 1.33333333333
         oscProp5.frequency = x * 1.25
         oscProp6.frequency = x * 1.2
+        oscProp7.frequency = x * 1.125
     }
 
     function changeFreq2(){
@@ -199,6 +225,8 @@ window.onload = function(){
             play5()
             play6()
             play6()
+            play7()
+            play7()
             changeFreq2()
             play2()
             play2()
