@@ -18,7 +18,7 @@
     </div>
     <div id="harmony-options">
         Harmony (1D only. Turn tremolo off to apply):
-        <input checked type="radio" name="harmony" value="P1">P1 |
+        <input id="P1" checked type="radio" name="harmony" value="P1">P1 |
         <input id="m2" type="radio" name="harmony" value="m2">m2 |
         <input id="M2" type="radio" name="harmony" value="M2">M2 |
         <input id="m3" type="radio" name="harmony" value="m3">m3 |
@@ -27,17 +27,17 @@
         <input id="P5" type="radio" name="harmony" value="P5">P5
     </div>
     <div id="wave-options">
-        Wave 1:<input checked onchange="changeType()" type="radio" name="waveform" value="square">Square | 
-        <input onchange="changeType()" type="radio" name="waveform" value="triangle">Triangle | 
-        <input onchange="changeType()" type="radio" name="waveform" value="sawtooth">Sawtooth | 
-        <input onchange="changeType()" type="radio" name="waveform" value="sine">Sine<br>
-        Wave 2 (if 2D activated):<input checked onchange="changeType2()" type="radio" name="waveform2" value="square">Square |
-        <input onchange="changeType2()" type="radio" name="waveform2" value="triangle">Triangle |
-        <input onchange="changeType2()" type="radio" name="waveform2" value="sawtooth">Sawtooth |
-        <input onchange="changeType2()" type="radio" name="waveform2" value="sine">Sine
+        Wave 1:<input checked onchange="changeTypeX()" type="radio" name="waveform" value="square">Square | 
+        <input onchange="changeTypeX()" type="radio" name="waveform" value="triangle">Triangle | 
+        <input onchange="changeTypeX()" type="radio" name="waveform" value="sawtooth">Sawtooth | 
+        <input onchange="changeTypeX()" type="radio" name="waveform" value="sine">Sine<br>
+        Wave 2 (if 2D activated):<input checked onchange="changeTypeY()" type="radio" name="waveform2" value="square">Square |
+        <input onchange="changeTypeY()" type="radio" name="waveform2" value="triangle">Triangle |
+        <input onchange="changeTypeY()" type="radio" name="waveform2" value="sawtooth">Sawtooth |
+        <input onchange="changeTypeY()" type="radio" name="waveform2" value="sine">Sine
     </div>
     <br>
-    <div id="grid" onmousedown="play(), play2(), play3(), play4(), play5(), play6(), play7(), play8(), play9()" onmouseup="play(), play2(), play3(), play4(), play5(), play6(), play7(), play8(), play9()"></div>
+    <div id="grid" onmousedown="playX(), playY(), playX2()" onmouseup="playX(), playY(), playX2()"></div>
 </body>
 <script src="script.js"></script>
 </html>
