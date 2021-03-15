@@ -1,4 +1,4 @@
-var play, play2, play3, oscillator, oscillator2, oscillator3, changeType, changeType2
+var play, play2, play3, play4, oscillator, oscillator2, oscillator3, oscillator4, changeType, changeType2
 
 var oscProp = { // principal for all possible combos
     type: "square",
@@ -13,6 +13,12 @@ var oscProp2 = { // y-axis osc if 2D is selected
 }
 
 var oscProp3 = { // P5 osc
+    type: "square",
+    frequency: 20,
+    playing: false
+}
+
+var oscProp4 = { //P4 osc
     type: "square",
     frequency: 20,
     playing: false
@@ -67,13 +73,32 @@ window.onload = function(){
         }
     }
 
+    play4 = function(){
+        if(oscProp4.playing){
+            oscillator4.stop()
+            oscProp4.playing = false
+        } else {
+            if(document.getElementById("P4").checked && !document.getElementById("poly-radio").checked){
+                oscillator4 = audioContext.createOscillator()
+                oscillator4.type = oscProp4.type
+                oscillator4.frequency.setValueAtTime(oscProp4.frequency,audioContext.currentTime)
+                oscillator4.connect(audioContext.destination)
+                oscillator4.start()
+                oscProp4.playing = true
+            }
+        }
+    }
+
     changeType = function(){
         oscProp.type = document.querySelector("input[name = 'waveform']:checked").value
         oscProp3.type = document.querySelector("input[name = 'waveform']:checked").value
+        oscProp4.type - document.querySelector("input[name = 'waveform']:checked").value
         play()
         play()
         play3()
         play3()
+        play4()
+        play4()
     }
 
     changeType2 = function(){
@@ -102,6 +127,7 @@ window.onload = function(){
     function changeFreq(){
         oscProp.frequency = x
         oscProp3.frequency = x * 1.5
+        oscProp4.frequency = x * 1.33333333333
     }
 
     function changeFreq2(){
@@ -115,6 +141,8 @@ window.onload = function(){
             play()
             play3()
             play3()
+            play4()
+            play4()
             changeFreq2()
             play2()
             play2()
