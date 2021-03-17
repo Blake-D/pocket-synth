@@ -99,6 +99,7 @@ window.onload = function(){
     let y = null
 
     document.getElementById("grid").addEventListener('mousedown', () => {
+        console.log('firing!')
         mouseState = true
     })
 
