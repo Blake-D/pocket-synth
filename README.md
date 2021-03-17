@@ -63,3 +63,7 @@ In its current form, it basically only works in computer browsers, not on mobile
 The "scan bar" also gets faster and faster with each click event. I can't figure out how to simply reset its state in between clicks. Though I must admit, I don't mind the result.
 
 I also for the life of me can't get my laptop's gyroscope to talk to the appropriate event listener. Firefox is gracious enough to inform me that the event listener I'm using has deprecated, but I can't seem to find a more current command, if there is one.
+
+***
+
+(Huge shout out to Chris Wilson (https://github.com/cwilso) for the Audio Context Monkey Patch, without which this thing would not run in Safari.)
