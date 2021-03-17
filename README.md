@@ -1,3 +1,5 @@
+# **Why?**
+
 I'm an active composer and bandleader. I formed somewhat of an experimental orchestra back in the mid-2010's purely as a vehicle for premiering my own compositions. As a lover of horror movie soundtracks (and the mid-20th century sound-mass compositions many of them are based on), I'm an avid fan of **portamento**; In my opinion, the coolest way to get from note to note is to **slide** from one to the other. I just love the imagery it invokes in my mind, like snakes slithering across the floor.
 
 So I tend to write a lot of music that incorporates portamento. I've written entire compositions in which the *only* kind of motion from note to note is by portamento. Those compositions are some of my favorite. Unfortunately, I haven't been able to premier many of those pieces. There aren't many everyday instruments that are capable of portamento. Trombones can do it, but there is only one trombonist in my orchestra. Orchestral instruments like the violin and cello are capable of it, but there are very few of those in my orchestra as well. My group is mostly made up of woodwinds and guitarists, with some brass and a couple of violists.
