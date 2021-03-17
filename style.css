@@ -3,6 +3,7 @@ html, body{
     margin: 0;
     color: greenyellow;
     background-color: black;
+    font-family: 'Press Start 2P', monospace;
 }
 
 canvas{
@@ -19,7 +20,7 @@ canvas{
 } */
 
 #grid{
-    background: url('scan_grid.jpeg') no-repeat;
+    background: url('scan_grid.jpeg');
     background-position: center;
     border-style: solid;
     border-color: greenyellow;
@@ -28,7 +29,12 @@ canvas{
     touch-action: none;
 }
 
-#wave-options, #combo-options, #harmony-options, #trem-option{
+#combo-options{
+    text-align: center;
+    padding-top: 1vh;
+}
+
+#wave-options, #harmony-options, #trem-option{
     text-align: center;
 }
 
