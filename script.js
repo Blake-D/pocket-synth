@@ -146,3 +146,45 @@ window.onload = function(){
         }
     })
 }
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var i = 4,
+    j = 4,
+    speed = 1,
+    isBottom = false;
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#07C';
+    ctx.lineCap = 'round';
+    ctx.shadowBlur = 18;
+    ctx.shadowColor = "#07C";
+    ctx.fillRect(i, j, 210, 10);
+	
+    if (!isBottom && j < canvas.height - 14){
+        j += speed;
+    } else if (j === canvas.height - 14){
+        isBottom = true;
+    }
+	
+    if (isBottom && j > 4){
+        j -= speed;
+    } else if (j === 4){
+        isBottom = false;
+    }
+    requestAnimationFrame(draw);
+}
+
+function stopDraw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    requestAnimationFrame(stopDraw);
+}
+
+document.getElementById("grid").addEventListener('mousedown', () => {
+    draw()
+})
+
+document.getElementById("grid").addEventListener('mouseup', () => {
+    stopDraw()
+})

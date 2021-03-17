@@ -37,7 +37,9 @@
         <input onchange="changeTypeY()" type="radio" name="waveform2" value="square">Square
     </div>
     <br>
-    <div id="grid" onmousedown="playX(), playY(), playX2()" onmouseup="playX(), playY(), playX2()"></div>
+    <div id="grid" onmousedown="playX(), playY(), playX2()" onmouseup="playX(), playY(), playX2()">
+        <canvas id="canvas"></canvas>
+    </div>
 </body>
 <script src="script.js"></script>
 </html>

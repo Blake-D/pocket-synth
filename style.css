@@ -3,6 +3,13 @@ html, body{
     margin: 0;
 }
 
+canvas{
+    border: 1px solid #d3d3d3;
+    width: 100%;
+    padding-left: 15vw;
+
+}
+
 .lock-screen{
     height: 100%;
     overflow: hidden;
