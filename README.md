@@ -60,4 +60,6 @@ The user can select between four different waveforms: sine, square, sawtooth, an
 
 In its current form, it basically only works in computer browsers, not on mobile devices (at least any ones I've tested it out on). I can't figure out how to get 'ontouchmove' to update x and y coordinates as the finger moves across the screen. So the best it can do on an Android phone, for example, is produce a static pitch while the finger remains in place. (So it technically kind of works, but more like a traditional keyboard. The pitch can't 'slide'.)
 
+The "scan bar" also gets faster and faster with each click event. I can't figure out how to simply reset its state in between clicks. Though I must admit, I don't mind the result.
+
 I also for the life of me can't get my laptop's gyroscope to talk to the appropriate event listener. Firefox is gracious enough to inform me that the event listener I'm using has deprecated, but I can't seem to find a more current command, if there is one.
