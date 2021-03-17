@@ -4,18 +4,17 @@ html, body{
 }
 
 canvas{
-    border: 1px solid #d3d3d3;
+    /* border: 1px solid #d3d3d3; */
     width: 100%;
-    padding-left: 15vw;
-
+    height: 100%;
 }
 
-.lock-screen{
+/* .lock-screen{
     height: 100%;
     overflow: hidden;
     width: 100%;
     position: fixed;
-}
+} */
 
 #grid{
     background: url('thumbprint.jpeg') no-repeat;

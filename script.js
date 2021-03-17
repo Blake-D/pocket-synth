@@ -147,6 +147,8 @@ window.onload = function(){
     })
 }
 
+// grid scanner
+
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 var i = 4,
@@ -160,7 +162,7 @@ function draw() {
     ctx.lineCap = 'round';
     ctx.shadowBlur = 18;
     ctx.shadowColor = "#07C";
-    ctx.fillRect(i, j, 210, 10);
+    ctx.fillRect(i, j, 290, 1);
 	
     if (!isBottom && j < canvas.height - 14){
         j += speed;
