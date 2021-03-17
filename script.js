@@ -1,3 +1,5 @@
+// oscillators
+
 var playX, 
     playY, 
     playX2, 
@@ -74,6 +76,8 @@ window.onload = function(){
         }
     }
 
+    // Each time any of the play() functions are called from here on out, they are called twice. That enables them to be called again once they have been stopped. Otherwise the page would have to refresh.
+
     changeTypeX = function(){ // changes the waveform type of the X and X2 oscillator, based on the 'waveform' options in index.html. X and X2 can only be set to the same type.
         oscX.type = document.querySelector("input[name = 'waveform']:checked").value
         oscX2.type = document.querySelector("input[name = 'waveform']:checked").value
@@ -147,40 +151,41 @@ window.onload = function(){
     })
 }
 
+
 // grid scanner
 
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
+var canvas = document.getElementById('canvas')
+var ctx = canvas.getContext('2d')
 var i = 4,
     j = 4,
     speed = 1,
-    isBottom = false;
+    isBottom = false
 
 function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = 'greenyellow';
-    ctx.lineCap = 'round';
-    ctx.shadowBlur = 50;
-    ctx.shadowColor = '#greenyellow';
-    ctx.fillRect(i, j, 290, .5);
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.fillStyle = 'greenyellow'
+    ctx.lineCap = 'round'
+    ctx.shadowBlur = 50
+    ctx.shadowColor = '#greenyellow'
+    ctx.fillRect(i, j, 290, .5)
 	
     if (!isBottom && j < canvas.height - 14){
-        j += speed;
+        j += speed
     } else if (j === canvas.height - 14){
-        isBottom = true;
+        isBottom = true
     }
 	
     if (isBottom && j > 4){
         j -= speed;
     } else if (j === 4){
-        isBottom = false;
+        isBottom = false
     }
-    requestAnimationFrame(draw);
+    requestAnimationFrame(draw)
 }
 
 function stopDraw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    requestAnimationFrame(stopDraw);
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    requestAnimationFrame(stopDraw)
 }
 
 document.getElementById("grid").addEventListener('mousedown', () => {
