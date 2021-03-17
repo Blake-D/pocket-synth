@@ -1,53 +1,41 @@
-var play, play2, oscillator, oscillator2, changeFreq, changeType
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var x = 4,
+    y = 4,
+    speed = 1,
+    isBottom = false;
 
-var oscProp = {
-    type: "square",
-    frequency: 20,
-    playing: false
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#07C';
+    ctx.lineCap = 'round';
+    ctx.shadowBlur = 18;
+    ctx.shadowColor = "#07C";
+    ctx.fillRect(x, y, 210, 10);
+	
+    if (!isBottom && y < canvas.height - 14){
+        y += speed;
+    } else if (y === canvas.height - 14){
+        isBottom = true;
+    }
+	
+    if (isBottom && y > 4){
+        y -= speed;
+    } else if (y === 4){
+        isBottom = false;
+    }
+    requestAnimationFrame(draw);
 }
 
-var oscProp2 = {
-    type: "square",
-    frequency: 20,
-    playing: false
+function stopDraw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    requestAnimationFrame(stopDraw);
 }
 
-var audioContext = new AudioContext()
+document.getElementById("canvas").addEventListener('mousedown', () => {
+    draw()
+})
 
-window.onload = function(){
-    play = function(){
-        if(oscProp.playing && oscProp2.playing){
-            oscillator.stop()
-            oscillator2.stop()
-            oscProp.playing = false
-            oscProp2.playing = false
-        } else {
-            oscillator = audioContext.createOscillator()
-            oscillator2 = audioContext.createOscillator()
-            oscillator.type = oscProp.type
-            oscillator2.type = oscProp2.type
-            oscillator.frequency.setValueAtTime(oscProp.frequency, audioContext.currentTime)
-            oscillator2.frequency.setValueAtTime(oscProp2.frequency, audioContext.currentTime)
-            oscillator.connect(audioContext.destination)
-            oscillator2.connect(audioContext.destination)
-            oscillator.start()
-            oscillator2.start()
-            oscProp.playing = true
-            oscProp2.playing = true
-        }
-    }
-
-    changeType = function(){
-        oscProp.type = document.querySelector("input[name = 'waveform']:checked").value
-        oscProp2.type = document.querySelector("input[name = 'waveform']:checked").value
-        play()
-        play()
-    }
-
-    changeFreq = function(){
-        oscProp.frequency = document.getElementById("freqslider").value * 3
-        oscProp2.frequency = document.getElementById("freqslider").value * 4
-        play()
-        play()
-    }
-}
+document.getElementById("canvas").addEventListener('mouseup', () => {
+    stopDraw()
+})

@@ -1,40 +1,8 @@
-#freqslider{
-    position: absolute;
-    width: 95vw;
-    height: 50vw;
-    opacity: 1;
-    z-index: 1;
+body{
+    margin: 0;
+    overflow: hidden;
 }
 
-#freqslider2{
-    position: absolute;
-    width: 95vw;
-    height: 50vw;
-    -webkit-appearance: slider-vertical;
-    writing-mode: bt-lr;
-    z-index: 1;
-}
-
-#grid{
-    background: url('thumbprint.jpeg') no-repeat;
-    background-position: center;
-    border-style: solid;
-    border-color: black;
-    position: absolute;
-}
-
-#options{
-    text-align: center;
-}
-
-#instructions{
-    text-align: center;
-}
-
-#thumb{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+canvas{
+    border: 1px solid #d3d3d3;
 }
