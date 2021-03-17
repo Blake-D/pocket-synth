@@ -158,11 +158,11 @@ var i = 4,
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#07C';
+    ctx.fillStyle = 'greenyellow';
     ctx.lineCap = 'round';
-    ctx.shadowBlur = 18;
-    ctx.shadowColor = "#07C";
-    ctx.fillRect(i, j, 290, 1);
+    ctx.shadowBlur = 50;
+    ctx.shadowColor = '#greenyellow';
+    ctx.fillRect(i, j, 290, .5);
 	
     if (!isBottom && j < canvas.height - 14){
         j += speed;
